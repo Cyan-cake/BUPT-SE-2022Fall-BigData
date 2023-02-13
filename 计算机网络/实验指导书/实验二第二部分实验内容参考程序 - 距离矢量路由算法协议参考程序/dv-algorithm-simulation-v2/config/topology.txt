@@ -1,0 +1,8 @@
+nodeA	nodeB	14
+nodeA	nodeF	31
+nodeB	nodeC	12
+nodeB	nodeE	32
+nodeC	nodeF	12
+nodeC	nodeD	7
+nodeD	nodeE	6
+nodeE	nodeF	7

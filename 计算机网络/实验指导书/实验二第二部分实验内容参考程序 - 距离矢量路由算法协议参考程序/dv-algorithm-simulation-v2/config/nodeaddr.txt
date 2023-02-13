@@ -1,0 +1,6 @@
+nodeA	8011
+nodeB	8012
+nodeC	8013
+nodeD	8014
+nodeE	8015
+nodeF	8016

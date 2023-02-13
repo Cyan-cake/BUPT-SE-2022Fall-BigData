@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://www.w3school.com.cn/lib/bs/bootstrap.css" rel="stylesheet">
+  <!-- 最新编译的 JavaScript -->
+  <script src="https://www.w3school.com.cn/lib/bs/bootstrap.js"></script>
+  <title>Document</title>
+</head>
+
+<body>
+  <div class="container">
+    <form enctype="multipart/form-data" method="post" name="fileinfo" style="width: 500px;">
+      <div class="mb-3 mt-3">
+        <label for="email" class="form-label">ID</label>
+        <input  class="form-control" id="email" placeholder="请输入id" name="ID">
+      </div>
+      <div class="mb-3">
+        <label for="pwd" class="form-label">Description</label>
+        <input class="form-control" id="pwd" placeholder="请输入描述" name="description">
+      </div>
+      <label>文件上传:</label>
+      <input type="file" name="file" required/>
+      <input type="submit" value="提交" />
+    </form>
+  </div>
+  <script type="text/javascript">
+    var form = document.forms.namedItem("fileinfo");
+    form.addEventListener('submit', function (ev) {
+      oData = new FormData(form);
+      var oReq = new XMLHttpRequest();
+      oReq.open("POST", "http://10.28.132.208:8080/api/sentID", true);
+      oReq.onload = function (oEvent) {
+        if (oReq.status == 200) {
+          alert(oReq.responseText);
+        } else {
+          alert("Error " + oReq.status + " occurred when trying to upload your file.<br \/>");
+        }
+      };
+      oReq.send(oData);
+      ev.preventDefault();
+    }, false);
+  </script>
+</body>
+
+</html>
